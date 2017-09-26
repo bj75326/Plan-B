@@ -1,0 +1,65 @@
+{
+  "name": "plan-b",
+  "version": "0.0.1",
+  "description": "Collection for Mobile React Component",
+  "main": "index.js",
+  "scripts": {
+    "test": "na",
+    "clean": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm run clean",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bj75326/Plan-B.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "component"
+  ],
+  "author": "Bill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bj75326/Plan-B/issues"
+  },
+  "devDependencies": {
+    "antd-mobile": "^1.6.7",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "bundle-loader": "^0.5.5",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "json-loader": "^0.5.7",
+    "redux-devtools": "^3.4.0",
+    "redux-devtools-dock-monitor": "^1.1.2",
+    "redux-devtools-log-monitor": "^1.3.0",
+    "redux-logger": "^3.0.6",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.5"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
+    "isomorphic-fetch": "^2.2.1",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "react-fastclick": "^3.0.2",
+    "react-fontawesome": "^1.6.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.1.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  }
+}

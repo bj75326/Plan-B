@@ -1,0 +1,51 @@
+{
+  "UI Component": [
+    {
+      "icon": "check-square-o",
+      "name": "Toast",
+      "url": "/Toast"
+    },
+    {
+      "icon": "comment-o",
+      "name": "Dialog Box",
+      "url": "/Dialog-Box"
+    },
+    {
+      "icon": "circle-o-notch",
+      "name": "Scroll Loading",
+      "url": "/Scroll-Loading"
+    },
+    {
+      "icon": "arrow-circle-o-down",
+      "name": "Pull Down",
+      "url": "/Pull-Down"
+    },
+    {
+      "icon": "arrow-circle-o-up",
+      "name": "Pull Up",
+      "url": "/Pull-Up"
+    },
+    {
+      "icon": "bars",
+      "name": "Cell Swipe",
+      "url": "/Cell-Swipe"
+    }
+  ],
+  "Form Component": [
+    {
+      "icon": "toggle-on",
+      "name": "Switch",
+      "url": "/Switch"
+    },
+    {
+      "icon": "sliders",
+      "name": "Slider",
+      "url": "/Slider"
+    },
+    {
+      "icon": "list-ul",
+      "name": "Checklist",
+      "url": "/Checklist"
+    }
+  ]
+}
