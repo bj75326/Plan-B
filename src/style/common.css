@@ -260,7 +260,8 @@ a {
 }
 
 .signature {
-    margin: 1rem auto 3rem;
+    margin: 1rem auto 0;
+    padding-bottom: 3rem;
     font-size: 10px;
     font-weight: 500;
     color: #666666;

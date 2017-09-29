@@ -11,7 +11,7 @@ const rightBtnGroup = [{
     style: {
         background: 'lightgray',
         color: '#fff',
-        boxShadow: '0 -2px lightgray'
+        boxShadow: '0 -1px lightgray'
     },
     onPress(){
         console.log('1');
@@ -21,7 +21,7 @@ const rightBtnGroup = [{
     style: {
         background: 'red',
         color: '#fff',
-        boxShadow: '0 -2px red'
+        boxShadow: '0 -1px red'
     },
     onPress(){
         console.log('2');
@@ -33,7 +33,7 @@ const leftBtnGroup = [{
     style: {
         background: 'red',
         color: '#fff',
-        boxShadow: '0 -2px red'
+        boxShadow: '0 -1px red'
     },
     onPress(){
         console.log('3');

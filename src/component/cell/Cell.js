@@ -32,6 +32,7 @@ class Cell extends Component {
         this.handleTouchMove = this.handleTouchMove.bind(this);
         this.handleTouchEnd = this.handleTouchEnd.bind(this);
         this.handleCoverTouchStart = this.handleCoverTouchStart.bind(this);
+        this.captureWidth = this.captureWidth.bind(this);
 
         this.openedLeft = false;
         this.openedRight = false;
@@ -67,15 +68,21 @@ class Cell extends Component {
         customTitle: PropTypes.bool
     };
 
+    captureWidth(){
+        this.leftBtnsWidth = this.left ? this.left.offsetWidth : 0;
+        this.rightBtnsWidth = this.right ? this.right.offsetWidth : 0;
+    }
+
     componentDidMount(){
 
-        window.addEventListener('load', ()=>{
-            this.leftBtnsWidth = this.left ? this.left.offsetWidth : 0;
-            this.rightBtnsWidth = this.right ? this.right.offsetWidth : 0;
-        });
+        window.addEventListener('load', this.captureWidth);
 
         this.leftBtnsWidth = this.left ? this.left.offsetWidth : 0;
         this.rightBtnsWidth = this.right ? this.right.offsetWidth : 0;
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener('load', this.captureWidth);
     }
 
     componentWillUpdate(nextProps){

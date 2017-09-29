@@ -47,7 +47,7 @@
     background-color: #fff;
     box-sizing: border-box;
     height: 46px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     position: relative;
     color: #333;
     font-weight: 400;
