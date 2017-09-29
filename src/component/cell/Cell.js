@@ -14,11 +14,13 @@ let isTouched = false;
 let startX, startY;
 let timestamp;
 
-let initTouchMove = false;
-let swipeLocked = false;
-let scrollLocked = false;
+//let initTouchMove = false;
+//let swipeLocked = false;
+//let scrollLocked = false;
 
 let swipeDistance = null;
+
+let noop = ()=>{};
 
 class Cell extends Component {
     constructor(props){
@@ -29,6 +31,7 @@ class Cell extends Component {
         this.handleTouchStart = this.handleTouchStart.bind(this);
         this.handleTouchMove = this.handleTouchMove.bind(this);
         this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        this.handleCoverTouchStart = this.handleCoverTouchStart.bind(this);
 
         this.openedLeft = false;
         this.openedRight = false;
@@ -39,8 +42,9 @@ class Cell extends Component {
         left: [],
         right: [],
         autoClose: false,
-        swipeDisabled: false,
-        allowRight: false
+        swipeDisabled: true,
+        allowRight: false,
+        customTitle: false
     };
 
     static PropTypes = {
@@ -58,10 +62,18 @@ class Cell extends Component {
         titleLabel: PropTypes.string,
         titleIcon: PropTypes.string,
 
-        allowRight: PropTypes.bool
+        allowRight: PropTypes.bool,
+
+        customTitle: PropTypes.bool
     };
 
     componentDidMount(){
+
+        window.addEventListener('load', ()=>{
+            this.leftBtnsWidth = this.left ? this.left.offsetWidth : 0;
+            this.rightBtnsWidth = this.right ? this.right.offsetWidth : 0;
+        });
+
         this.leftBtnsWidth = this.left ? this.left.offsetWidth : 0;
         this.rightBtnsWidth = this.right ? this.right.offsetWidth : 0;
     }
@@ -97,8 +109,13 @@ class Cell extends Component {
         const transformRight = `translate3d(${distanceForRight}px, 0px, 0px)`;
 
         this.content.style.transform = transform;
-        if(this.left) this.left.style.transfrom = transformLeft;
+        if(this.left) this.left.style.transform = transformLeft;
         if(this.right) this.right.style.transform = transformRight;
+
+        if(this.cover){
+            this.cover.style.display = Math.abs(value) > 0 ? 'block' : 'none';
+            this.cover.style.transform = transform;
+        }
     }
 
     handleTouchStart(event){
@@ -123,6 +140,7 @@ class Cell extends Component {
             const deltaY = touch.clientY - startY;
 
             //initTouchMove 判断执行默认的滚动屏幕，还是swipe Cell
+            /*
             if(!initTouchMove){
                 initTouchMove = true;
                 if(Math.abs(deltaX) > Math.abs(deltaY)){
@@ -131,10 +149,10 @@ class Cell extends Component {
                 }else{
                     swipeLocked = true;
                 }
-            }
+            }*/
 
-            if(scrollLocked && !swipeLocked){
-                event.preventDefault();
+            /*if(scrollLocked && !swipeLocked){
+                event.preventDefault();*/
                 if(!this.state.swiping){
                     this.setState({
                         swiping: true
@@ -142,7 +160,7 @@ class Cell extends Component {
                 }
                 this._setStyle(deltaX);
                 swipeDistance = deltaX;
-            }
+            /*}*/
         }
     }
 
@@ -174,11 +192,15 @@ class Cell extends Component {
                 }
             }
 
-            initTouchMove = false;
+            /*initTouchMove = false;
             scrollLocked = false;
-            swipeLocked = false;
+            swipeLocked = false;*/
             swipeDistance = null;
         }
+    }
+
+    handleCoverTouchStart(){
+        this.props.changeCellGroupState(false);
     }
 
     doOpenLeft(){
@@ -211,6 +233,7 @@ class Cell extends Component {
 
     onBtnClick(ev, btn){
         ev.preventDefault();
+        ev.stopPropagation();
         const onPress = btn.onPress;
         if(onPress){
             onPress(ev);
@@ -252,33 +275,40 @@ class Cell extends Component {
     }
 
     renderContent(){
-        const {prefixCls, titleIcon, titleText, titleLabel} = this.props;
+        const {prefixCls, titleIcon, titleText, titleLabel, swipeDisabled, customTitle, children} = this.props;
 
         return (
             <div className={`${prefixCls}-content`} ref={el => this.content = el}
-                onTouchStart={this.handleTouchStart}
-                onTouchMove={this.handleTouchMove}
-                onTouchEnd={this.handleTouchEnd}
+                onTouchStart={!swipeDisabled ? this.handleTouchStart : noop}
+                onTouchMove={!swipeDisabled ? this.handleTouchMove : noop}
+                onTouchEnd={!swipeDisabled ? this.handleTouchEnd : noop}
             >
-                {!titleIcon ? (
-                    <div className={`${prefixCls}-title`}>
-                        {titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null}
-                        {titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null}
-                    </div>
-                ) : (
-                    [
-                        <div className={`${prefixCls}-icon`}>
-                            <FontAwesome name={titleIcon} className="fa-lg"/>
-                        </div>,
+                {customTitle ? ( React.Children.count(children) === 1 ? children :
+                        children[0]
+                    )
+                    : (
+                    !titleIcon ? (
                         <div className={`${prefixCls}-title`}>
-                            {[
-                                titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null,
-                                titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null
-                            ]}
+                            {titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null}
+                            {titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null}
                         </div>
-                    ]
-                )}
-                <div className={`${prefixCls}-value`}></div>
+                    ) : (
+                        [
+                            <div className={`${prefixCls}-icon`}>
+                                <FontAwesome name={titleIcon} className="fa-lg"/>
+                            </div>,
+                            <div className={`${prefixCls}-title`}>
+                                {[
+                                    titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null,
+                                    titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null
+                                ]}
+                            </div>
+                        ]
+                    ))
+                }
+                <div className={`${prefixCls}-value`}>
+                    {customTitle ? children[1] : children}
+                </div>
             </div>
         );
     }
@@ -308,6 +338,9 @@ class Cell extends Component {
 
         return (left.length || right.length) && !swipeDisabled ? (
             <a className={cellClassName}>
+                <div className={`${prefixCls}-cover`} ref={el => this.cover = el}
+                     onTouchStart={this.handleCoverTouchStart}
+                />
                 <div className={`${prefixCls}-left`} ref={el => this.left = el}>
                     {this.renderButtons(left)}
                 </div>

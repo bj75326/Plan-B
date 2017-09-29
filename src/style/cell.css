@@ -54,10 +54,6 @@
     text-decoration: none;
 }
 
-.pb-cell:active{
-    background-color: #f2f2f2;
-}
-
 .pb-cell:after {
     position: absolute;
     right: 0;
@@ -104,6 +100,21 @@
     height: 100%;
     padding: 0 11px;
     line-height: 1;
+    touch-action: pan-y;
+}
+
+.pb-cell-content:active {
+    background-color: #f2f2f2;
+}
+
+.pb-cell-cover {
+    position: absolute;
+    z-index: 2;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: none;
 }
 
 .pb-cell-icon {
