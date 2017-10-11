@@ -65,7 +65,8 @@ class Cell extends Component {
 
         allowRight: PropTypes.bool,
 
-        customTitle: PropTypes.bool
+        customTitle: PropTypes.bool,
+        onCellClick: PropTypes.func
     };
 
     captureWidth(){
@@ -282,13 +283,14 @@ class Cell extends Component {
     }
 
     renderContent(){
-        const {prefixCls, titleIcon, titleText, titleLabel, swipeDisabled, customTitle, children} = this.props;
+        const {prefixCls, titleIcon, titleText, titleLabel, swipeDisabled, customTitle, children, onCellClick} = this.props;
 
         return (
             <div className={`${prefixCls}-content`} ref={el => this.content = el}
                 onTouchStart={!swipeDisabled ? this.handleTouchStart : noop}
                 onTouchMove={!swipeDisabled ? this.handleTouchMove : noop}
                 onTouchEnd={!swipeDisabled ? this.handleTouchEnd : noop}
+                onClick={onCellClick ? onCellClick : noop}
             >
                 {customTitle ? ( React.Children.count(children) === 1 ? children :
                         children[0]

@@ -29,6 +29,16 @@
       "icon": "bars",
       "name": "Cell Swipe",
       "url": "/Cell-Swipe"
+    },
+    {
+      "icon": "trello",
+      "name": "Navbar",
+      "url": "/Navbar"
+    },
+    {
+      "icon": "tablet",
+      "name": "Tabbar",
+      "url": "/Tabbar"
     }
   ],
   "Form Component": [

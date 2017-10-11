@@ -23,7 +23,8 @@ class Notice extends Component{
         prefixCls: PropTypes.string,
         duration: PropTypes.number,
         content: PropTypes.any,
-        onClose: PropTypes.func
+        onClose: PropTypes.func,
+        position: PropTypes.string
     };
 
     componentDidMount(){
@@ -57,11 +58,15 @@ class Notice extends Component{
     }
 
     render(){
+        console.log('notice render');
         const {shouldClose} = this.state;
-        const {prefixCls, content} = this.props;
+        const {prefixCls, content, position} = this.props;
         const noticeClassName = classNames({
             [prefixCls]: !!prefixCls,
-            [`${prefixCls}-leave`]: !!shouldClose
+            [`${prefixCls}-leave`]: !!shouldClose,
+            [`${prefixCls}-top`]: position === 'top',
+            [`${prefixCls}-middle`]: position === 'middle',
+            [`${prefixCls}-bottom`]: position === 'bottom',
         });
         return (
             <div className={noticeClassName}>
