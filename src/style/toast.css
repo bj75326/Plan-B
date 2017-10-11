@@ -53,7 +53,7 @@
 }
 
 .pb-toast-top {
-    top: 15%;
+    top: 18%;
     -webkit-animation: SlideInFromTop .3s;
     animation: SlideInFromTop .3s;
 }
@@ -89,6 +89,8 @@
     box-sizing: border-box;
     font-size: 14px;
     padding: 0 10px;
+    height: 42px;
+    line-height: 42px;
 }
 
 @keyframes FadeIn {
