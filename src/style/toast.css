@@ -88,9 +88,8 @@
 .pb-toast-content {
     box-sizing: border-box;
     font-size: 14px;
-    padding: 0 10px;
-    height: 42px;
-    line-height: 42px;
+    padding: 12px 10px;
+    line-height: normal;
 }
 
 @keyframes FadeIn {
