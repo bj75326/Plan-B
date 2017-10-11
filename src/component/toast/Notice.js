@@ -30,7 +30,7 @@ class Notice extends Component{
     componentDidMount(){
         if(this.props.duration > 0){
             this.closeTimer = setTimeout(()=>{
-                //this.close();
+                this.close();
             }, this.props.duration - 300);
         }
     }
