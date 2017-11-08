@@ -26,6 +26,30 @@ Tool.flattenArray = arr => {
 
 Tool.trim = str => ('' + str).replace(/(^\s+)|(\s+$)/g, '');
 
+Tool.hasClass = (node, className)=>{
+    if(node.classList){
+        return node.classList.contains(className);
+    }
+    const originClass = node.className;
+    return ` ${originClass} `.indexOf(` ${className} `) > -1;
+};
+
+Tool.addClass = (node, className)=>{
+    if(node.classList){
+        node.classList.add(className);
+    }else{
+        if(!Tool.hasClass(node, className)) node.className = `${node.className} ${className}`;
+    }
+};
+
+Tool.removeClass = (node, className)=>{
+    if(node.classList){
+        node.classList.remove(className);
+    }else{
+        if(Tool.hasClass(node.className)) node.className = ` ${node.className} `.replace(` ${className} `, ' ');
+    }
+};
+
 export default Tool;
 
 

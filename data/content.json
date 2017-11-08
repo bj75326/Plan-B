@@ -56,6 +56,24 @@
       "icon": "list-ul",
       "name": "Checklist",
       "url": "/Checklist"
+    },
+    {
+      "icon": "dot-circle-o",
+      "name": "Radio",
+      "url": "/Radio"
+    },
+    {
+      "icon": "window-minimize",
+      "name": "Button",
+      "url": "/Button",
+      "iconStyle": {
+        "transform": "translate(0, -5px)"
+      }
+    },
+    {
+      "icon": "bars",
+      "name": "Field",
+      "url": "/Field"
     }
   ]
 }

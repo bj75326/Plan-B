@@ -13,6 +13,7 @@ import config from '../config/Config';
 import Home from '../component/index';
 import toastCaseContainer from '../component/requires/toastCase';
 import cellSwipeCaseContainer from '../component/requires/cellSwipeCase';
+import fieldCaseContainer from '../component/requires/fieldCase';
 
 const ToastCase = ({match}) => (
     <Bundle load={toastCaseContainer}>
@@ -22,6 +23,12 @@ const ToastCase = ({match}) => (
 
 const CellSwipeCase = ({match}) => (
     <Bundle load={cellSwipeCaseContainer}>
+        {Component => <Component match={match}/>}
+    </Bundle>
+);
+
+const FieldCase = ({match}) => (
+    <Bundle load={fieldCaseContainer}>
         {Component => <Component match={match}/>}
     </Bundle>
 );
@@ -37,6 +44,7 @@ const RouteConfig = (
                     <Route location={location} path="/" exact component={Home}/>
                     <Route location={location} path="/Toast" component={ToastCase}/>
                     <Route location={location} path="/Cell-Swipe" component={CellSwipeCase}/>
+                    <Route location={location} path="/Field" component={FieldCase}/>
                 </Layout>
             );
         }}/>

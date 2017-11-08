@@ -12,7 +12,9 @@ const Main = mySetting => {
         id: '',
         url: '',
         data: {},
-        component: <div></div>
+        component: <div></div>,
+        actionName: 'fetchPosts',
+        dataName: 'initData'
     };
 
     let setting = Object.assign({}, defaultSetting, mySetting);
@@ -27,14 +29,7 @@ const Main = mySetting => {
         };
 
         componentWillMount(){
-            /*
-            const {isExact, url} = this.props.match;
-            const {projectName} = config;
-            if(isExact && url.replace(/\//g, '') === projectName){
-                document.documentElement.style.backgroundColor = "#F2F2F2";
-            }else{
-                document.documentElement.style.backgroundColor = "#FAFAFA";
-            }*/
+
         }
 
         shouldComponentUpdate(nextProps, nextState){
@@ -45,11 +40,12 @@ const Main = mySetting => {
 
         componentDidMount(){
             if(this.props.setting.url){
-                this.props.fetchPosts(this.props.setting.url, this.props.setting.data);
+                this.props[this.props.setting.actionName](this.props.setting.url, this.props.setting.data);
             }
         }
 
         render(){
+            console.log("template render");
             return (
                 <this.props.setting.component {...this.props} initData={this.props.initData.toJS()}/>
             );
@@ -57,9 +53,8 @@ const Main = mySetting => {
     }
 
     return connect(state => {
-        let {initData} = state;
         return {
-            initData: initData
+            initData: state[setting.dataName]
         }
     }, action)(Index);
 };

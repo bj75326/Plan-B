@@ -38,7 +38,7 @@ class Home extends Component {
                             <div className="showcases">
                                 {cases.map(_case_ => (
                                     <Link to={`${_case_.url}`} onClick={this.handleClick}>
-                                        <span className="icon"><FontAwesome name={_case_.icon}/></span>
+                                        <span className="icon" style={_case_.iconStyle}><FontAwesome name={_case_.icon}/></span>
                                         <span className="name">{_case_.name}</span>
                                         <span className="arrow"><FontAwesome name="angle-right"/></span>
                                     </Link>
