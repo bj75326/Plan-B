@@ -17,8 +17,7 @@ const system = (() => {
 
 const projectName = 'Plan-B';
 const version = '0.0.1';
-const target = process.env.NODE_ENV !== 'production' ? '' : `https://bj75326.github.io/${projectName}`;
-//const target = process.env.NODE_ENV !== 'production' ? '' : `http://localhost:63342/${projectName}`;
+const target = process.env.NODE_ENV !== 'production' ? `http://localhost:63342/${projectName}` : `https://bj75326.github.io/${projectName}`;
 
 
 const config = {

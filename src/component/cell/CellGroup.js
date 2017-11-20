@@ -51,7 +51,7 @@ class CellGroup extends Component {
 
         return (
             <div className={cellGroupClassName} style={style} {...restProps}>
-                {title ? <h5 className={`${prefixCls}-desc`}>{title}</h5> : null}
+                <h5 className={`${prefixCls}-desc`}>{title}</h5>
                 {children ? (<div className={`${prefixCls}-wrapper`}>
                     {React.Children.map(children, (child)=>{
                         return React.cloneElement(child, {

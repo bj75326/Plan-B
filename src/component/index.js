@@ -37,7 +37,7 @@ class Home extends Component {
                             <div className="title">{showCaseName}</div>,
                             <div className="showcases">
                                 {cases.map(_case_ => (
-                                    <Link to={`${_case_.url}`} onClick={this.handleClick}>
+                                    <Link to={`${_case_.url}`} onClick={this.handleClick} key={`${_case_.url}`}>
                                         <span className="icon" style={_case_.iconStyle}><FontAwesome name={_case_.icon}/></span>
                                         <span className="name">{_case_.name}</span>
                                         <span className="arrow"><FontAwesome name="angle-right"/></span>

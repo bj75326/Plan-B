@@ -4,5 +4,14 @@
   },
   "email": {
     "value": "superice_gy@163.com"
+  },
+  "disabledField": {
+    "value": "日向翔阳"
+  },
+  "readOnlyField": {
+    "value": "影山飞雄"
+  },
+  "disabledAmount": {
+    "value": "8273.65"
   }
 }

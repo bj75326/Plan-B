@@ -27,6 +27,7 @@ class CustomInput extends Component {
         this.doBlur = this.doBlur.bind(this);
         this.saveRef = this.saveRef.bind(this);
         this.onKeyboardClick = this.onKeyboardClick.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
 
     static defaultProps = {
@@ -49,7 +50,8 @@ class CustomInput extends Component {
         placeholder: PropTypes.string,
         disabled: PropTypes.bool,
         editable: PropTypes.bool,
-        maxLength: PropTypes.number
+        maxLength: PropTypes.number,
+        moneyKeyboardAlign: PropTypes.string,
     };
 
     componentWillReceiveProps(nextProps){
@@ -61,12 +63,15 @@ class CustomInput extends Component {
     }
 
     componentDidMount(){
-        if(!IS_REACT_16 && window.customKeyboard){
+        if(!IS_REACT_16 && !window.customKeyboard){
             this.renderCustomKeyboard();
         }
     }
 
     componentWillUnmount(){
+        if(this.state.focus){
+            this.props.onBlur(this.state.value);
+        }
         this.unLinkInput();
     }
 
@@ -75,8 +80,8 @@ class CustomInput extends Component {
         if(customKeyboard.linkedInput === this){
             customKeyboard.linkedInput = null;
             Tool.addClass(customKeyboard.keyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
-            this.removeBlurListener();
         }
+        this.removeBlurListener();
     }
 
     renderCustomKeyboard(){
@@ -198,6 +203,7 @@ class CustomInput extends Component {
     }
 
     doBlur(e){
+        console.log('doBlur');
         const {value} = this.state;
         if(e.target !== this.inputRef){
             this.onInputBlur(value);

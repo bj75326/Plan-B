@@ -11,6 +11,11 @@
       "url": "/Dialog-Box"
     },
     {
+      "icon": "spinner",
+      "name": "Spinner",
+      "url": "/Spinner"
+    },
+    {
       "icon": "circle-o-notch",
       "name": "Scroll Loading",
       "url": "/Scroll-Loading"

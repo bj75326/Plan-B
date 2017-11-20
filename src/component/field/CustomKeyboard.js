@@ -17,7 +17,11 @@ class CustomKeyboard extends Component {
     };
 
     onKeyboardClick(e, value){
+        console.log('onKeyboardClick');
+        //阻止document click事件触发的doBlur
         e.nativeEvent.stopImmediatePropagation();
+        //解决当使用react-click的情况
+        e.nativeEvent.preventDefault();
         if(value==='confirm' && this.confirmDisabled){
             return null;
         }else{
@@ -92,7 +96,7 @@ export class KeyboardItem extends Component {
         }
         const wrapperCls = classNames({
             [`${prefixCls}-item`]: true,
-            [className]: true
+            [className]: !!className
         });
         return (
             <td ref={withRef} onClick={e=>onClick(e, value)} className={wrapperCls} {...restProps}>{children}</td>

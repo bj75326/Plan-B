@@ -157,6 +157,8 @@ a {
     left: 50%;
     margin-left: -12px;
     margin-top: -15px;
+    width: 24px;
+    height: 30px;
 }
 
 .page>svg path, .page>svg rect{
@@ -301,6 +303,11 @@ a {
 
 .text-warning .pb-cell-icon{
     color: #fab83a;
+}
+
+.spinner-cell-value svg path,
+.spinner-cell-value svg rect {
+    fill: #FF6700;
 }/*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

@@ -62,7 +62,7 @@ class CellSwipeCase extends Component {
                         <CellGroup.Cell titleText="Item-2" />
                         <CellGroup.Cell titleText="Item-3" />
                     </CellGroup>
-                    <CellGroup title="自定义按键组">
+                    <CellGroup title="自定义按键组" style={{marginBottom: '42px'}}>
                         <CellGroup.Cell titleText="Item-1" />
                         <CellGroup.Cell titleText="Item-2" />
                         <CellGroup.Cell titleText="Item-3" />

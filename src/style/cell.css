@@ -6,7 +6,7 @@
 }
 
 .pb-cell-desc {
-    margin: 14px 8px 11px;
+    padding: 14px 8px 11px;
     font-size: 12px;
     color: #8f8f94;
     font-weight: normal;
@@ -141,6 +141,10 @@
     display: block;
     font-size: 12px;
     margin-top: 6px;
+}
+
+.pb-cell-value {
+    flex: 0;
 }
 
 .pb-cell-allow-right {

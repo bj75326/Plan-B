@@ -56,6 +56,10 @@ class InputItem extends Component {
         errors: null,
         onErrorClick: noop,
         updatePlaceholder: false,
+
+        validateIndicator: false,
+
+        moneyKeyboardAlign: 'right',
     };
 
     static Proptypes = {
@@ -70,7 +74,11 @@ class InputItem extends Component {
         onErrorClick: PropTypes.func,
 
         updatePlaceholder: PropTypes.bool,
+
         isFieldValidating: PropTypes.bool,
+        validateIndicator: PropTypes.bool,
+
+        moneyKeyboardAlign: PropTypes.string,
     };
 
     componentWillUnmount(){
@@ -205,12 +213,12 @@ class InputItem extends Component {
 
     render(){
         const {prefixCls, style, className, editable, errors, clear, type, onExtraClick, onErrorClick, extra,
-            moneyKeyboardAlign, isFieldValidating, ...restProps} = this.props;
+            updatePlaceholder, moneyKeyboardAlign, isFieldValidating, validateIndicator, ...restProps} = this.props;
         const {defaultValue, name, disabled, maxLength} = restProps;
 
         const {placeholder, focused} = this.state;
         const {value} = this.state;
-
+        //console.log('value', value);
         const inputItemClassName = classNames({
             [prefixCls]: true,
             [className]: !!className,
@@ -306,15 +314,18 @@ class InputItem extends Component {
                     </div>
                 ) : null}
 
-                {isFieldValidating ? <OsxSpinner className={`${prefixCls}-spinner`}/> : [
-                    !errors && editable && !disabled && (value && value.length > 0) && !focused ? (
-                        <div className={`${prefixCls}-success`}>
-                            <FontAwesome name="check-circle"/>
-                        </div>
-                    ) : null,
-                    warning ? <div className={`${prefixCls}-warning`}><FontAwesome name="exclamation-triangle"/></div> : null,
-                    errors && !warning ? <div className={`${prefixCls}-error`}><FontAwesome name="exclamation-circle"/></div> : null
-                ]}
+                {validateIndicator ? (
+                    isFieldValidating ? <OsxSpinner className={`${prefixCls}-spinner`}/> : [
+                        !errors && editable && !disabled && (value && value.length > 0) && !focused ? (
+                            <div className={`${prefixCls}-success`}>
+                                <FontAwesome name="check-circle"/>
+                            </div>
+                        ) : null,
+                        warning ? <div className={`${prefixCls}-warning`}><FontAwesome name="exclamation-triangle"/></div> : null,
+                        errors && !warning ? <div className={`${prefixCls}-error`}><FontAwesome name="exclamation-circle"/></div> : null
+                    ]
+                ) : null}
+
                 {extra !=='' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
             </div>
         );
