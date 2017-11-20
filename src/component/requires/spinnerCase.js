@@ -28,7 +28,7 @@ class SpinnerCase extends Component {
             <div className="page subpage">
                 <Header title="Spinner" currentAnimation={this.props.currentAnimation}/>
                 <div className="viewport">
-                    <CellGroup style={{marginTop: '11px'}}>
+                    <CellGroup style={{marginTop: '11px'}} title="test">
                         <CellGroup.Cell titleText="反色蛇形">
                             <ReverseSnake className="spinner-cell-value" style={{width: '40px', height: '40px'}}/>
                         </CellGroup.Cell>
