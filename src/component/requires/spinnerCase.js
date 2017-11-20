@@ -51,7 +51,7 @@ class SpinnerCase extends Component {
                             <ComposeLine style={{width: '24px', height: '30px', margin: '0 8px'}} className="spinner-cell-value"/>
                         </CellGroup.Cell>
                     </CellGroup>
-                    <CellGroup style={{paddingBottom: '42px'}}>
+                    <CellGroup style={{paddingBottom: '200px'}}>
                         <CellGroup.Cell titleText="适配IOS">
                             <OsxSpinner style={{width: '28px', height: '28px', stroke: '#69717d', margin: '0 6px'}}/>
                         </CellGroup.Cell>
