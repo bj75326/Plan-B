@@ -22,7 +22,7 @@ import AndroidSpinner from '../common/androidSpinner';
 
 
 class SpinnerCase extends Component {
-
+    /*
     render(){
         return (
             <div className="page subpage">
@@ -58,6 +58,37 @@ class SpinnerCase extends Component {
                         <CellGroup.Cell titleText="适配Android">
                             <AndroidSpinner style={{width: '30px', height: '30px', margin: '0 5px', stroke: '#FF6700'}}/>
                         </CellGroup.Cell>
+                    </CellGroup>
+                </div>
+            </div>
+        );
+    }*/
+    render(){
+        return (
+            <div className="page subpage">
+                <Header title="Spinner" currentAnimation={this.props.currentAnimation}/>
+                <div className="viewport">
+                    <CellGroup style={{marginTop: '11px'}} >
+                        <CellGroup.Cell titleText="反色蛇形"/>
+
+                        <CellGroup.Cell titleText="短蛇形"/>
+
+                        <CellGroup.Cell titleText="长蛇形"/>
+
+                        <CellGroup.Cell titleText="顶部对齐矩形"/>
+
+                        <CellGroup.Cell titleText="中间对齐矩形"/>
+
+                        <CellGroup.Cell titleText="渐变色矩形"/>
+
+                        <CellGroup.Cell titleText="组合矩形"/>
+
+                    </CellGroup>
+                    <CellGroup style={{paddingBottom: '200px'}}>
+                        <CellGroup.Cell titleText="适配IOS"/>
+
+                        <CellGroup.Cell titleText="适配Android"/>
+
                     </CellGroup>
                 </div>
             </div>
