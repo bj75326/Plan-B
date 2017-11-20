@@ -287,6 +287,7 @@ a {
     overflow: scroll;
     position: relative;
     flex: 1 1 auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .text-muted .pb-cell-icon{
