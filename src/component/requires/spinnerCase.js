@@ -22,13 +22,13 @@ import AndroidSpinner from '../common/androidSpinner';
 
 
 class SpinnerCase extends Component {
-    /*
+
     render(){
         return (
             <div className="page subpage">
                 <Header title="Spinner" currentAnimation={this.props.currentAnimation}/>
                 <div className="viewport">
-                    <CellGroup style={{marginTop: '11px'}} title="test">
+                    <CellGroup style={{marginTop: '11px'}}>
                         <CellGroup.Cell titleText="反色蛇形">
                             <ReverseSnake className="spinner-cell-value" style={{width: '40px', height: '40px'}}/>
                         </CellGroup.Cell>
@@ -51,44 +51,13 @@ class SpinnerCase extends Component {
                             <ComposeLine style={{width: '24px', height: '30px', margin: '0 8px'}} className="spinner-cell-value"/>
                         </CellGroup.Cell>
                     </CellGroup>
-                    <CellGroup style={{paddingBottom: '200px'}}>
+                    <CellGroup style={{marginBottom: '42px'}}>
                         <CellGroup.Cell titleText="适配IOS">
                             <OsxSpinner style={{width: '28px', height: '28px', stroke: '#69717d', margin: '0 6px'}}/>
                         </CellGroup.Cell>
                         <CellGroup.Cell titleText="适配Android">
                             <AndroidSpinner style={{width: '30px', height: '30px', margin: '0 5px', stroke: '#FF6700'}}/>
                         </CellGroup.Cell>
-                    </CellGroup>
-                </div>
-            </div>
-        );
-    }*/
-    render(){
-        return (
-            <div className="page subpage">
-                <Header title="Spinner" currentAnimation={this.props.currentAnimation}/>
-                <div className="viewport">
-                    <CellGroup style={{marginTop: '11px'}} >
-                        <CellGroup.Cell titleText="反色蛇形"/>
-
-                        <CellGroup.Cell titleText="短蛇形"/>
-
-                        <CellGroup.Cell titleText="长蛇形"/>
-
-                        <CellGroup.Cell titleText="顶部对齐矩形"/>
-
-                        <CellGroup.Cell titleText="中间对齐矩形"/>
-
-                        <CellGroup.Cell titleText="渐变色矩形"/>
-
-                        <CellGroup.Cell titleText="组合矩形"/>
-
-                    </CellGroup>
-                    <CellGroup style={{paddingBottom: '200px'}}>
-                        <CellGroup.Cell titleText="适配IOS"/>
-
-                        <CellGroup.Cell titleText="适配Android"/>
-
                     </CellGroup>
                 </div>
             </div>
