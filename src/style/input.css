@@ -174,8 +174,6 @@
     transition-property: transform display, -webkit-transform display;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    /*custom keyboard issue test*/
-    font-size: 16px;
 }
 
 .pb-number-keyboard-wrapper-hide {
@@ -188,6 +186,7 @@
     margin: 0;
     border-collapse: collapse;
     border-top: 1px solid #ddd;
+    box-sizing: content-box;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
