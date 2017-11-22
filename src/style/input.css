@@ -186,7 +186,6 @@
     margin: 0;
     border-collapse: collapse;
     border-top: 1px solid #ddd;
-    box-sizing: content-box;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
@@ -238,6 +237,8 @@
     font-size: 25.5px;
     color: #2a2b2c;
     position: relative;
+    /*test*/
+    line-height: 50px;
 }
 
 .pb-number-keyboard-wrapper table tr .pb-number-keyboard-item:not(.keyboard-confirm) {
