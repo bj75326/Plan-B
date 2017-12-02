@@ -15,6 +15,8 @@ import toastCaseContainer from '../component/requires/toastCase';
 import cellSwipeCaseContainer from '../component/requires/cellSwipeCase';
 import fieldCaseContainer from '../component/requires/fieldCase';
 import spinnerCaseContainer from '../component/requires/spinnerCase';
+import flexCaseContainer from '../component/requires/flexCase';
+import buttonCaseContainer from '../component/requires/buttonCase';
 
 const ToastCase = ({match}) => (
     <Bundle load={toastCaseContainer}>
@@ -40,6 +42,18 @@ const SpinnerCase = ({match}) => (
     </Bundle>
 );
 
+const FlexCase = ({match}) => (
+    <Bundle load={flexCaseContainer}>
+        {Component => <Component match={match}/>}
+    </Bundle>
+);
+
+const ButtonCase = ({match}) => (
+    <Bundle load={buttonCaseContainer}>
+        {Component => <Component match={match}/>}
+    </Bundle>
+);
+
 /*----*/
 const {projectName} = config;
 
@@ -53,6 +67,8 @@ const RouteConfig = (
                     <Route location={location} path="/Cell-Swipe" component={CellSwipeCase}/>
                     <Route location={location} path="/Field" component={FieldCase}/>
                     <Route location={location} path="/Spinner" component={SpinnerCase}/>
+                    <Route location={location} path="/Flex-Box" component={FlexCase}/>
+                    <Route location={location} path="/Button" component={ButtonCase}/>
                 </Layout>
             );
         }}/>

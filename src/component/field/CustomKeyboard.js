@@ -3,7 +3,7 @@
  */
 
 import React, {Component} from 'react';
-import TouchFeedback from '../common/feedback';
+import TouchFeedback from '../common/touchFeedback';
 import classNames from 'classnames';
 
 class CustomKeyboard extends Component {

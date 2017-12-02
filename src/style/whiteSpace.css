@@ -1,0 +1,24 @@
+.pb-white-space {
+    margin: 0;
+    padding: 0;
+}
+
+.pb-white-space.pb-white-space-xs {
+    height: 3px;
+}
+
+.pb-white-space.pb-white-space-sm {
+    height: 6px;
+}
+
+.pb-white-space.pb-white-space-md {
+    height: 9px;
+}
+
+.pb-white-space.pb-white-space-lg {
+    height: 15px;
+}
+
+.pb-white-space.pb-white-space-xl {
+    height: 21px;
+}

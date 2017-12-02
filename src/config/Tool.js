@@ -50,6 +50,10 @@ Tool.removeClass = (node, className)=>{
     }
 };
 
+Tool.isString = (str)=>{
+    return typeof str === 'string';
+};
+
 export default Tool;
 
 

@@ -103,7 +103,8 @@
     touch-action: pan-y;
 }
 
-.pb-cell:not(.field-cell) .pb-cell-content:active {
+
+.pb-cell:not(.no-feedback-cell) .pb-cell-content:active {
     background-color: #f2f2f2;
 }
 

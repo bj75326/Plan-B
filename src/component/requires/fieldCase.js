@@ -66,13 +66,13 @@ class FieldCase extends Component {
                     <Header title="Field" currentAnimation={this.props.currentAnimation} description={['基于rc-form的表单组件']}/>
                     <div className="viewport">
                         <CellGroup title="基本样式" style={{marginTop: '11px'}}>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("标题1")}
                                 <InputItem {...getFieldProps('basic01')}
                                     placeholder="普通输入框"
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("标题2")}
                                 <InputItem {...getFieldProps('basic02')}
                                     placeholder="带清除键的输入框"
@@ -81,7 +81,7 @@ class FieldCase extends Component {
                             </CellGroup.Cell>
                         </CellGroup>
                         <CellGroup title="自定义输入框与键盘">
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("标题3")}
                                 <InputItem {...getFieldProps('custom01', {
                                     normalize: (v, prev) => {
@@ -100,7 +100,7 @@ class FieldCase extends Component {
                                     moneyKeyboardAlign="left"
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("标题4")}
                                 <InputItem {...getFieldProps('custom02', {
                                     normalize: (v, prev) => {
@@ -120,7 +120,7 @@ class FieldCase extends Component {
                             </CellGroup.Cell>
                         </CellGroup>
                         <CellGroup title="内容格式化">
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("银行卡号")}
                                 <InputItem {...getFieldProps('format01')}
                                     placeholder="xxxx xxxx xxxx xxxx"
@@ -128,7 +128,7 @@ class FieldCase extends Component {
                                     type="bankCard"
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("手机号码")}
                                 <InputItem {...getFieldProps('format02')}
                                     placeholder="xxx xxxx xxxx"
@@ -136,7 +136,7 @@ class FieldCase extends Component {
                                     type="phone"
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("数字")}
                                 <InputItem {...getFieldProps('format03')}
                                     placeholder="请输入数字"
@@ -144,7 +144,7 @@ class FieldCase extends Component {
                                     type="number"
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("密码")}
                                 <InputItem {...getFieldProps('format04')}
                                     placeholder="请输入密码"
@@ -160,7 +160,7 @@ class FieldCase extends Component {
                             </CellGroup.Cell>
                         </CellGroup>
                         <CellGroup title="label样式">
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel2("user")}
                                 <InputItem {...getFieldProps('label1')} placeholder="用户名"/>
                             </CellGroup.Cell>
@@ -170,19 +170,19 @@ class FieldCase extends Component {
                             </CellGroup.Cell>
                         </CellGroup>
                         <CellGroup title="禁用与只读模式">
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("姓名（禁用）")}
                                 <InputItem {...getFieldProps('disabledField')} disabled={true}
                                     placeholder="请输入姓名"
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("姓名（只读）")}
                                 <InputItem {...getFieldProps('readOnlyField')} editable={false}
                                     placeholder="请输入姓名"
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("金额（禁用）")}
                                 <InputItem {...getFieldProps('disabledAmount', {
                                     normalize: (v, prev) => {
@@ -202,7 +202,7 @@ class FieldCase extends Component {
                             </CellGroup.Cell>
                         </CellGroup>
                         <CellGroup title="表单内容验证（async-validator）" style={{marginBottom: "42px"}}>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("用户名")}
                                 <InputItem {...getFieldProps('username', {
                                     //validateFirst: true,
@@ -259,7 +259,7 @@ class FieldCase extends Component {
                                            validateIndicator={true}
                                 />
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("邮箱")}
                                 <InputItem {...getFieldProps('email', {
                                     validateFirst: true,

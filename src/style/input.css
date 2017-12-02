@@ -50,6 +50,7 @@
 
 .pb-input.pb-input-disabled input{
     color: #bbb;
+    background-color: #fff;
 }
 
 .pb-input-success, .pb-input-warning, .pb-input-error, .pb-input-spinner, .pb-input-extra{

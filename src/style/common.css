@@ -311,3 +311,25 @@ a {
 .spinner-cell-value svg rect {
     fill: #FF6700;
 }
+
+.section-title {
+    padding: 28px 8px 11px;
+    font-size: 14px;
+    color: #8f8f94;
+    font-weight: normal;
+}
+
+.inline {
+    width: 80px!important;
+    margin: 0 8px 9px 0;
+}
+.no-margin-right {
+    margin-right: 0;
+}
+
+.section-title-h2 {
+    padding: 28px 0 11px;
+    font-size: 14px;
+    color: #8f8f94;
+    font-weight: normal;
+}
