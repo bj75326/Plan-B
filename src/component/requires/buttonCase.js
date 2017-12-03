@@ -38,9 +38,6 @@ class ButtonCase extends Component {
                         <Button inline={true} type="warning" disabled={true}>Warning Disabled</Button>
                         <h2 className="section-title-h2">加载</h2>
                         <Button loading={true}>Loading</Button>
-                        <WhiteSpace/>
-                        <Button inline={true} size="small" style={{marginRight: '10px'}} loading={true}>Small</Button>
-                        <Button inline={true} size="mini" loading={true}>Mini</Button>
                         <h2 className="section-title-h2">场景</h2>
                         <Flex>
                             <Flex.Item >
