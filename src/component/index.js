@@ -4,6 +4,7 @@
 
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+//import Link from './common/customLink';
 import template from './common/template';
 import config from '../config/Config';
 import FontAwesome from 'react-fontawesome';
@@ -37,7 +38,7 @@ class Home extends Component {
                             <div className="title">{showCaseName}</div>,
                             <div className="showcases">
                                 {cases.map(_case_ => (
-                                    <Link to={`${_case_.url}`} onClick={this.handleClick} key={`${_case_.url}`}>
+                                    <Link to={`${_case_.url}`} onClick={this.handleClick} key={`${_case_.url}`} >
                                         <span className="icon" style={_case_.iconStyle}><FontAwesome name={_case_.icon}/></span>
                                         <span className="name">{_case_.name}</span>
                                         <span className="arrow"><FontAwesome name="angle-right"/></span>

@@ -54,6 +54,16 @@ Tool.isString = (str)=>{
     return typeof str === 'string';
 };
 
+Tool.parseHashURL = (url)=>{
+    if(url.split('#').length > 1){
+        const path = url.split('#')[1].match(/\/[^/]+/g);
+        if(path && path.length >= 1){
+            return path.length;
+        }
+    }
+    return 0;
+};
+
 export default Tool;
 
 
