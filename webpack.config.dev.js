@@ -27,7 +27,7 @@ module.exports = {
 
     output: {
         path: BUILD_PATH,
-        publicPath: './dist/',
+        //publicPath: './dist/',
         filename: '[name].js',
         chunkFilename: '[name].[chunkhash:5].js'
     },
@@ -72,6 +72,11 @@ module.exports = {
         ]
     },
 
+    devServer: {
+        inline: true,
+        hot: true
+    },
+
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({name: 'common', filename: 'common.bundle.js'}),
 
@@ -80,13 +85,15 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: './index.html',
             template: './src/template/index.html',
             inject: 'body',
             hash: true,
         }),
 
         new ExtractTextPlugin('style.css'),
+
+        new webpack.HotModuleReplacementPlugin(),
 
         /*
         new webpack.optimize.UglifyJsPlugin({
