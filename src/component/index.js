@@ -4,7 +4,6 @@
 
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-//import Link from './common/customLink';
 import template from './common/template';
 import config from '../config/Config';
 import FontAwesome from 'react-fontawesome';
@@ -19,7 +18,8 @@ class Home extends Component {
     }
 
     handleClick(){
-        this.props.currentAnimation('left', document.documentElement.scrollTop);
+        const scrollTop = Tool.getWindowScrollTop();
+        this.props.currentAnimation('left', scrollTop);
     }
 
     render(){
@@ -61,6 +61,7 @@ class Home extends Component {
 export default template({
     id: 'index',
     component: Home,
-    url: '/data/content.json'
+    url: '/data/content.json',
+    dataName: 'initData'
 });
 

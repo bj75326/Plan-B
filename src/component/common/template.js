@@ -14,7 +14,7 @@ const Main = mySetting => {
         data: {},
         component: <div></div>,
         actionName: 'fetchPosts',
-        dataName: 'initData'
+        dataName: ''
     };
 
     let setting = Object.assign({}, defaultSetting, mySetting);
@@ -33,7 +33,7 @@ const Main = mySetting => {
         }
 
         shouldComponentUpdate(nextProps, nextState){
-            if(nextProps.initData.get['isFetching']) return false;
+            if(nextProps.initData && nextProps.initData.get['isFetching']) return false;
 
             return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState));
         }
@@ -47,15 +47,21 @@ const Main = mySetting => {
         render(){
             console.log("template render");
             return (
-                <this.props.setting.component {...this.props} initData={this.props.initData.toJS()}/>
+                <this.props.setting.component {...this.props}  initData={this.props.initData && this.props.initData.toJS()}/>
             );
         }
     }
 
     return connect(state => {
-        return {
-            initData: state[setting.dataName]
+
+        if(setting.dataName){
+            return {
+                initData: state[setting.dataName]
+            }
         }
+
+        return {};
+
     }, action)(Index);
 };
 

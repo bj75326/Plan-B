@@ -64,6 +64,10 @@ Tool.parseHashURL = (url)=>{
     return 0;
 };
 
+Tool.getWindowScrollTop = ()=>{
+    return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop ;
+};
+
 export default Tool;
 
 

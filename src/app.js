@@ -24,7 +24,7 @@ window.addEventListener("hashchange", function(event){
     const {newURL, oldURL} = event;
     const newPathLevel = Tool.parseHashURL(newURL);
     const oldPathLevel = Tool.parseHashURL(oldURL);
-    const scrollTop = document.documentElement.scrollTop;
+    const scrollTop = Tool.getWindowScrollTop();
     if(newPathLevel > oldPathLevel){
         store.dispatch(currentAnimation('left', scrollTop));
     }else{

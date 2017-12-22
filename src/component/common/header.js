@@ -33,7 +33,7 @@ class Header extends Component{
     }
 
     handleLinkClick(){
-        this.props.currentAnimation('right', document.documentElement.scrollTop);
+        this.props.currentAnimation('right', Tool.getWindowScrollTop());
     }
 
     render(){
