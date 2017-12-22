@@ -57,9 +57,12 @@ export const fetchPosts = (path, postData) => {
 };
 
 //页面切换动画
-export const currentAnimation = animationCls => ({
+export const currentAnimation = (animationCls, scrollTop) => ({
     type: CURRENT_ANIMATION,
-    animationCls
+    animationCls,
+    //页面切换自动置顶fix
+    scrollTop
+
 });
 
 //Field初始获取数据

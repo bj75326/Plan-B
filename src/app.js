@@ -19,16 +19,19 @@ import {currentAnimation} from './redux/action/index';
 initReactFastclick();
 
 //layout switch animation test
+
 window.addEventListener("hashchange", function(event){
     const {newURL, oldURL} = event;
     const newPathLevel = Tool.parseHashURL(newURL);
     const oldPathLevel = Tool.parseHashURL(oldURL);
+    const scrollTop = document.documentElement.scrollTop;
     if(newPathLevel > oldPathLevel){
-        store.dispatch(currentAnimation('left'));
+        store.dispatch(currentAnimation('left', scrollTop));
     }else{
-        store.dispatch(currentAnimation('right'));
+        store.dispatch(currentAnimation('right', scrollTop));
     }
 }, false);
+
 
 render((
     <Provider store={store}>

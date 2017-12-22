@@ -9,6 +9,27 @@ import {connect} from 'react-redux';
 import * as action from '../redux/action/index';
 
 class LayoutSwitch extends Component {
+
+    //need to add shouldComponentUpdate here!!
+    shouldComponentUpdate(nextProps){
+        if(nextProps.location.pathname === this.props.location.pathname){
+           return false;
+        }
+        return true;
+    }
+
+    componentWillUpdate(nextProps){
+        this.currPath = this.props.location.pathname;
+        this.nextPath = nextProps.location.pathname;
+    }
+
+    componentDidUpdate(){
+        console.log('prevDOM', this[this.currPath]);
+        console.log('currDOM', this[this.nextPath]);
+        this[this.currPath].scrollTop = this.props.routeAnimation.toJS()['scrollTop'];
+
+    }
+
     render(){
         console.log('render LayoutSwitch');
         const {animationCls} = this.props.routeAnimation.toJS();
@@ -21,7 +42,7 @@ class LayoutSwitch extends Component {
                 transitionEnterTimeout={300}
                 transitionLeaveTimeout={300}
             >
-                <div key={location.pathname}>
+                <div key={location.pathname} ref={el=>this[location.pathname]=el}>
                     {this.props.children}
                 </div>
             </ReactCSSTransitionGroup>
@@ -32,7 +53,7 @@ class LayoutSwitch extends Component {
 const Layout = connect(state=>{
     let {routeAnimation} = state;
     return {
-        routeAnimation: routeAnimation
+        routeAnimation
     }
 }, action)(LayoutSwitch);
 

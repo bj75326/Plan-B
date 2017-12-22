@@ -14,7 +14,7 @@ var server = new WebpackDevServer(webpack(config), {
         colors: true,
     },
     hot: true,
-    //contentBase: './dist/'
+    contentBase: 'plan-b/'
 });
 
 server.app.get('*', function(req, res){

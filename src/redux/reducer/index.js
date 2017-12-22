@@ -50,13 +50,18 @@ export const initData = (state=defaultInitData, action={}) => {
 };
 
 const defaultRouteAnimation = Immutable.fromJS({
-    animationCls: 'left'
+    animationCls: 'left',
+    scrollTop: 0
 });
 
 export const routeAnimation = (state=defaultRouteAnimation, action={}) => {
     switch(action.type){
         case CURRENT_ANIMATION:
-            return state.set('animationCls', action.animationCls);
+            //return state.set('animationCls', action.animationCls);
+            return state.merge(Immutable.fromJS({
+                'animationCls': action.animationCls,
+                'scrollTop': action.scrollTop
+            }));
         default:
             return state;
     }

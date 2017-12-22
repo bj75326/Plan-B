@@ -19,7 +19,7 @@ class Home extends Component {
     }
 
     handleClick(){
-        this.props.currentAnimation('left');
+        this.props.currentAnimation('left', document.documentElement.scrollTop);
     }
 
     render(){
