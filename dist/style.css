@@ -352,6 +352,31 @@ a {
     color: #8f8f94;
     font-weight: normal;
 }
+
+.breadCrumb {
+    font-size: 19px;
+    padding: 21px 0 21px 18px;
+
+}
+
+.breadCrumb a {
+    font-size: 19px;
+    color: #f07c01;
+}
+
+.breadCrumb a:nth-child(1) {
+    font-size: 21px;
+}
+
+.breadCrumb>* {
+    margin: 0 12px 0 0;
+    vertical-align: middle;
+}
+
+.breadCrumb-separator {
+
+    color: #d9d9d9;
+}
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

@@ -3,8 +3,18 @@
  */
 import React, {Component} from 'react';
 import template from '../common/template';
-import Header from '../common/header';
+import BreadCrumb from '../common/breadCrumb';
 import CellGroup from '../cell/CellGroup';
+import Tool from '../../config/Tool';
+import FontAwesome from 'react-fontawesome';
+
+const routes = [{
+    path: '/',
+    breadcrumbName: <FontAwesome name="home"/>
+}, {
+    path: '/Cell-Swipe',
+    breadcrumbName: 'Cell Swipe'
+}];
 
 const rightBtnGroup = [{
     text: 'Mark as Unread',
@@ -42,12 +52,21 @@ const leftBtnGroup = [{
 
 class CellSwipeCase extends Component {
 
+    constructor(props){
+        super(props);
+        this.breadCrumbClick = this.breadCrumbClick.bind(this);
+    }
+
+    breadCrumbClick(){
+        this.props.currentAnimation('right', Tool.getWindowScrollTop());
+    }
+
     render(){
         return (
             <div className="page subpage">
-                <Header title="Cell Swipe" currentAnimation={this.props.currentAnimation}/>
+                <BreadCrumb routes={routes} param={{onClick: this.breadCrumbClick}}/>
                 <div className="viewport">
-                    <CellGroup title="向左滑动单元格出现功能按键，点击触发事件" style={{marginTop: '11px'}}>
+                    <CellGroup title="向左滑动单元格出现功能按键，点击触发事件">
                         <CellGroup.Cell titleText="Item-1" right={rightBtnGroup} swipeDisabled={false}/>
                         <CellGroup.Cell titleText="Item-2" right={rightBtnGroup} swipeDisabled={false}/>
                         <CellGroup.Cell titleText="Item-3" right={rightBtnGroup} swipeDisabled={false}/>

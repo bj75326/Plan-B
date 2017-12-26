@@ -4,13 +4,24 @@
 
 import React, {Component} from 'react';
 import template from '../common/template';
-import Header from '../common/header';
 import CellGroup from '../cell/CellGroup';
 import Toast from '../toast/Toast';
+import BreadCrumb from '../common/breadCrumb';
+import FontAwesome from 'react-fontawesome';
+import Tool from '../../config/Tool';
+
+const routes = [{
+    path: '/',
+    breadcrumbName: <FontAwesome name="home"/>
+}, {
+    path: '/Toast',
+    breadcrumbName: 'Toast'
+}];
 
 class ToastCase extends Component {
     constructor(props){
         super(props);
+        this.breadCrumbClick = this.breadCrumbClick.bind(this);
     }
 
     show(){
@@ -41,15 +52,19 @@ class ToastCase extends Component {
         return Toast.showBottom('设置显示位置', 3000, false, true, null);
     }
 
+    breadCrumbClick(){
+        this.props.currentAnimation('right', Tool.getWindowScrollTop());
+    }
+
     render(){
         return (
             <div className="page subpage">
-                <Header title="Toast" currentAnimation={this.props.currentAnimation}/>
+                <BreadCrumb routes={routes} param={{onClick: this.breadCrumbClick}}/>
                 <div className="viewport">
-                    <CellGroup title="点击单元格显示toast基本样式" style={{marginTop: '11px'}}>
+                    <CellGroup title="点击单元格显示toast基本样式">
                         <CellGroup.Cell titleIcon="commenting-o" titleText="default" allowRight={true} onCellClick={this.show.bind(this)}/>
                     </CellGroup>
-                    <CellGroup title="点击单元格显示带有icon的toast" >
+                    <CellGroup title="点击单元格显示带有icon的toast">
                         <CellGroup.Cell className="text-success" titleIcon="check" titleText="success" allowRight={true} onCellClick={this.showSuccess.bind(this)}/>
                         <CellGroup.Cell className="text-danger" titleIcon="exclamation-circle" titleText="error" allowRight={true} onCellClick={this.showError.bind(this)}/>
                         <CellGroup.Cell className="text-warning" titleIcon="exclamation-triangle" titleText="warning" allowRight={true} onCellClick={this.showWarning.bind(this)}/>

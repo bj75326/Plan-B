@@ -4,10 +4,13 @@
 
 import React, {Component} from 'react';
 import Template from '../common/template';
-import Header from '../common/header';
 import Flex from '../grid/Flex';
 import WhiteSpace from '../grid/WhiteSpace';
 import WingBlank from '../grid/WingBlank';
+import Tool from '../../config/Tool';
+import FontAwesome from 'react-fontawesome';
+import BreadCrumb from '../common/breadCrumb';
+
 
 const FlexBoxContent = props => (
     <div style={{
@@ -22,15 +25,53 @@ const FlexBoxContent = props => (
     </div>
 );
 
+const routes = [{
+    path: '/',
+    breadcrumbName: <FontAwesome name="home"/>
+}, {
+    path: '/Flex-Box',
+    breadcrumbName: 'Flex'
+}];
+
+const flex1 = {
+    WebkitBoxFlex: 1,
+    WebkitFlex: 1,
+    msFlex: 1,
+    flex: 1
+};
+
+const flex2 = {
+    WebkitBoxFlex: 2,
+    WebkitFlex: 2,
+    msFlex: 2,
+    flex: 2
+};
+
+const flex5 = {
+    WebkitBoxFlex: 5,
+    WebkitFlex: 5,
+    msFlex: 5,
+    flex: 5
+};
+
 class FlexCase extends Component {
+
+    constructor(props){
+        super(props);
+        this.breadCrumbClick = this.breadCrumbClick.bind(this);
+    }
+
+    breadCrumbClick(){
+        this.props.currentAnimation('right', Tool.getWindowScrollTop());
+    }
 
     render(){
 
         return (
             <div className="page subpage">
-                <Header title="Flex" currentAnimation={this.props.currentAnimation} description={['简单的弹性布局']}/>
+                <BreadCrumb routes={routes} param={{onClick: this.breadCrumbClick}}/>
                 <div className="viewport">
-                    <div className="section-title">等比</div>
+                    <div className="section-title" style={{paddingTop: '10px'}}>等比</div>
                     <WingBlank size="md">
                         <Flex>
                             <Flex.Item>
@@ -77,90 +118,40 @@ class FlexCase extends Component {
                     <div className="section-title">占比</div>
                     <WingBlank size="md">
                         <Flex>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '2',
-                                webkitFlex: '2',
-                                msFlex: '2',
-                                flex: '2'
-                            }}>
+                            <Flex.Item style={flex2}>
                                 <FlexBoxContent>1</FlexBoxContent>
                             </Flex.Item>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '1',
-                                webkitFlex: '1',
-                                msFlex: '1',
-                                flex: '1'
-                            }}>
+                            <Flex.Item style={flex1}>
                                 <FlexBoxContent>2</FlexBoxContent>
                             </Flex.Item>
                         </Flex>
                         <WhiteSpace />
                         <Flex>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '1',
-                                webkitFlex: '1',
-                                msFlex: '1',
-                                flex: '1'
-                            }}>
+                            <Flex.Item style={flex1}>
                                 <FlexBoxContent>1</FlexBoxContent>
                             </Flex.Item>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '2',
-                                webkitFlex: '2',
-                                msFlex: '2',
-                                flex: '2'
-                            }}>
+                            <Flex.Item style={flex2}>
                                 <FlexBoxContent>2</FlexBoxContent>
                             </Flex.Item>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '1',
-                                webkitFlex: '1',
-                                msFlex: '1',
-                                flex: '1'
-                            }}>
+                            <Flex.Item style={flex1}>
                                 <FlexBoxContent>3</FlexBoxContent>
                             </Flex.Item>
                         </Flex>
                         <WhiteSpace />
                         <Flex>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '1',
-                                webkitFlex: '1',
-                                msFlex: '1',
-                                flex: '1'
-                            }}>
+                            <Flex.Item style={flex1}>
                                 <FlexBoxContent>1</FlexBoxContent>
                             </Flex.Item>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '1',
-                                webkitFlex: '1',
-                                msFlex: '1',
-                                flex: '1'
-                            }}>
+                            <Flex.Item style={flex1}>
                                 <FlexBoxContent>2</FlexBoxContent>
                             </Flex.Item>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '1',
-                                webkitFlex: '1',
-                                msFlex: '1',
-                                flex: '1'
-                            }}>
+                            <Flex.Item style={flex1}>
                                 <FlexBoxContent>3</FlexBoxContent>
                             </Flex.Item>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '1',
-                                webkitFlex: '1',
-                                msFlex: '1',
-                                flex: '1'
-                            }}>
+                            <Flex.Item style={flex1}>
                                 <FlexBoxContent>4</FlexBoxContent>
                             </Flex.Item>
-                            <Flex.Item style={{
-                                webkitBoxFlex: '5',
-                                webkitFlex: '5',
-                                msFlex: '5',
-                                flex: '5'
-                            }}>
+                            <Flex.Item style={flex5}>
                                 <FlexBoxContent>5</FlexBoxContent>
                             </Flex.Item>
                         </Flex>

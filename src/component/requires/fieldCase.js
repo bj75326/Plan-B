@@ -7,11 +7,12 @@ import Template from '../common/template';
 import {createForm} from 'rc-form';
 import Loading from '../common/loading';
 import CellGroup from '../cell/CellGroup';
-import Header from '../common/header';
 import PropTypes from 'prop-types';
 import Config from '../../config/Config';
 import fetch from 'isomorphic-fetch';
 import FontAwesome from 'react-fontawesome';
+import Tool from '../../config/Tool';
+import BreadCrumb from '../common/breadCrumb';
 
 import InputItem from '../field/InputItem';
 
@@ -38,6 +39,14 @@ const renderExtra = (extra) => (
     <FontAwesome name={extra}/>
 );
 
+const routes = [{
+    path: '/',
+    breadcrumbName: <FontAwesome name="home"/>
+}, {
+    path: '/Field',
+    breadcrumbName: 'Field'
+}];
+
 class FieldCase extends Component {
     constructor(props){
         super(props);
@@ -45,12 +54,18 @@ class FieldCase extends Component {
         this.state = {
             //只用于[password] extra click event
             showPassword: false
-        }
+        };
+
+        this.breadCrumbClick = this.breadCrumbClick.bind(this);
     }
 
     static PropTypes = {
         form: PropTypes.object
     };
+
+    breadCrumbClick(){
+        this.props.currentAnimation('right', Tool.getWindowScrollTop());
+    }
 
     render(){
         const {initData} = this.props;
@@ -63,9 +78,9 @@ class FieldCase extends Component {
 
             return (
                 <div className="page subpage">
-                    <Header title="Field" currentAnimation={this.props.currentAnimation} description={['基于rc-form的表单组件']}/>
+                    <BreadCrumb routes={routes} param={{onClick: this.breadCrumbClick}}/>
                     <div className="viewport">
-                        <CellGroup title="基本样式" style={{marginTop: '11px'}}>
+                        <CellGroup title="基本样式">
                             <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel("标题1")}
                                 <InputItem {...getFieldProps('basic01')}

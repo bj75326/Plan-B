@@ -7,19 +7,38 @@ import Flex from '../grid/Flex';
 import WhiteSpace from '../grid/WhiteSpace';
 import WingBlank from '../grid/WingBlank';
 import template from '../common/template';
-import Header from '../common/header';
 
 import CellGroup from '../cell/CellGroup';
+import Tool from '../../config/Tool';
+import FontAwesome from 'react-fontawesome';
+import BreadCrumb from '../common/breadCrumb';
+
+const routes = [{
+    path: '/',
+    breadcrumbName: <FontAwesome name="home"/>
+}, {
+    path: '/Button',
+    breadcrumbName: 'Button'
+}];
 
 class ButtonCase extends Component {
+
+    constructor(props){
+        super(props);
+        this.breadCrumbClick = this.breadCrumbClick.bind(this);
+    }
+
+    breadCrumbClick(){
+        this.props.currentAnimation('right', Tool.getWindowScrollTop());
+    }
 
     render(){
         return (
             <div className="page subpage">
-                <Header title="Button" currentAnimation={this.props.currentAnimation}/>
+                <BreadCrumb routes={routes} param={{onClick: this.breadCrumbClick}}/>
                 <div className="viewport">
                     <WingBlank size="lg">
-                        <h2 className="section-title-h2">按键类型</h2>
+                        <h2 className="section-title-h2" style={{paddingTop: '10px'}}>按键类型</h2>
                         <Button >Default</Button>
                         <WhiteSpace/>
                         <Button type="primary">Primary</Button>

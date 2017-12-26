@@ -52,12 +52,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                //loader: 'style-loader!css-loader'
-                loader: ExtractTextPlugin.extract({
+                loader: 'style-loader!css-loader'
+                /*loader: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: "css-loader",
                     publicPath: './'
-                })
+                })*/
             },
             {
                 test: /\.(woff|svg|eot|ttf)\??.*$/,
@@ -91,7 +91,7 @@ module.exports = {
             hash: true,
         }),
 
-        new ExtractTextPlugin('style.css'),
+        //new ExtractTextPlugin('style.css'),
 
         new webpack.HotModuleReplacementPlugin(),
 

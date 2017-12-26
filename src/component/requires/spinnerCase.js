@@ -4,8 +4,10 @@
 
 import React, {Component} from 'react';
 import Template from '../common/template';
-import Header from '../common/header';
 import CellGroup from '../cell/CellGroup';
+import BreadCrumb from '../common/breadCrumb';
+import Tool from '../../config/Tool';
+import FontAwesome from 'react-fontawesome';
 
 import ReverseSnake from '../common/reverseSnake';
 import ShortSnake from '../common/shortSnake';
@@ -20,15 +22,31 @@ import ComposeLine from '../common/composeLine';
 import OsxSpinner from '../common/osxSpinner';
 import AndroidSpinner from '../common/androidSpinner';
 
+const routes = [{
+    path: '/',
+    breadcrumbName: <FontAwesome name="home"/>
+}, {
+    path: '/Spinner',
+    breadcrumbName: 'Spinner'
+}];
 
 class SpinnerCase extends Component {
+
+    constructor(props){
+        super(props);
+        this.breadCrumbClick = this.breadCrumbClick.bind(this);
+    }
+
+    breadCrumbClick(){
+        this.props.currentAnimation('right', Tool.getWindowScrollTop());
+    }
 
     render(){
         return (
             <div className="page subpage">
-                <Header title="Spinner" currentAnimation={this.props.currentAnimation}/>
+                <BreadCrumb routes={routes} param={{onClick: this.breadCrumbClick}}/>
                 <div className="viewport">
-                    <CellGroup style={{marginTop: '11px'}}>
+                    <CellGroup title="示例">
                         <CellGroup.Cell titleText="反色蛇形">
                             <ReverseSnake className="spinner-cell-value" style={{width: '40px', height: '40px'}}/>
                         </CellGroup.Cell>
