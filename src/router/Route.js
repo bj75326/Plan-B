@@ -17,6 +17,7 @@ import fieldCaseContainer from '../component/requires/fieldCase';
 import spinnerCaseContainer from '../component/requires/spinnerCase';
 import flexCaseContainer from '../component/requires/flexCase';
 import buttonCaseContainer from '../component/requires/buttonCase';
+import dialogCaseContainer from '../component/requires/dialogCase';
 
 const ToastCase = ({match}) => (
     <Bundle load={toastCaseContainer}>
@@ -54,6 +55,12 @@ const ButtonCase = ({match}) => (
     </Bundle>
 );
 
+const DialogCase = ({match}) => (
+    <Bundle load={dialogCaseContainer}>
+        {Component => <Component match={match}/>}
+    </Bundle>
+);
+
 /*----*/
 const {projectName} = config;
 
@@ -69,6 +76,7 @@ const RouteConfig = (
                     <Route location={location} path="/Spinner" component={SpinnerCase}/>
                     <Route location={location} path="/Flex-Box" component={FlexCase}/>
                     <Route location={location} path="/Button" component={ButtonCase}/>
+                    <Route location={location} path="/Dialog-Box" component={DialogCase}/>
                 </Layout>
             );
         }}/>

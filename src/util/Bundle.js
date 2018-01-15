@@ -15,7 +15,7 @@ class Bundle extends Component{
         };
     }
 
-    static propTypes = {
+    static PropTypes = {
         load: PropTypes.func,
         children: PropTypes.func
     };

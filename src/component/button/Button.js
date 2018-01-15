@@ -96,7 +96,7 @@ class Button extends Component {
                     style={style}
                     onClick={disabled ? null : onClick}
                     aria-disabled={disabled}
-                   {...restProps}
+                    {...restProps}
                 >
                     {iconEl}
                     {kids}

@@ -107,6 +107,7 @@ class TouchFeedBack extends Component{
         };
 
         const child = React.Children.only(children);
+        //console.log(child.props.onClick);
         if(!disabled && this.state.active){
             let {style, className} = child.props;
             if(activeClassName){
@@ -119,13 +120,28 @@ class TouchFeedBack extends Component{
                 style = {...style, ...activeStyle}
             }
 
-            return React.cloneElement(child, {
+            const test = React.cloneElement(child, {
                 className,
                 style,
                 ...events
             });
+            //console.log(test);
+
+            return test;
+            /*
+            return React.cloneElement(child, {
+                className,
+                style,
+                ...events
+            });*/
         }
-        return React.cloneElement(child, events);
+
+        const test = React.cloneElement(child, events);
+        console.log(test);
+        return test;
+
+        /*
+        return React.cloneElement(child, events);*/
     }
 }
 
