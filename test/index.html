@@ -5,6 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-
+<button>click</button>
 </body>
+<script type="text/javascript">
+    const ele = document.querySelector('button');
+    ele.addEventListener('click', e=>{
+        console.log('click');
+    }, false);
+    ele.addEventListener('touchstart', e=>{
+        //e.preventDefault();
+        console.log('touchstart');
+    }, false);
+    ele.addEventListener('touchend', e=>{
+        console.log('touchend');
+    }, false);
+    ele.addEventListener('mousedown', e=>{
+        console.log('mousedown');
+    }, false);
+    ele.addEventListener('mouseup', e=>{
+        e.preventDefault();
+        console.log('mouseup');
+    }, false);
+    ele.addEventListener('mousemove', e=>{
+        console.log('mousemove');
+    }, false);
+</script>
 </html>

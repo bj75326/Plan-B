@@ -68,11 +68,9 @@ class DialogCase extends React.Component {
                 header={<div className="pb-dialog-title">提示</div>}
                 footer={(
                     <div className="pb-dialog-btn-group-v pb-dialog-btn-group-normal" role="group">
-                        <div className="pb-dialog-button-wrapper" onClick={this.handleDialogConfirm}>
-                            <TouchFeedback activeClassName="pb-dialog-button-active">
-                                <a className="pb-dialog-button">确认</a>
-                            </TouchFeedback>
-                        </div>
+                        <TouchFeedback activeClassName="pb-dialog-button-active">
+                            <a className="pb-dialog-button" onClick={this.handleDialogConfirm}>确认</a>
+                        </TouchFeedback>
                     </div>
                 )}
                 className="pb-dialog-normal"

@@ -58,18 +58,22 @@ class TouchFeedBack extends Component{
     }
 
     onTouchStart(e){
+        console.log('touchFeedback onTouchStart');
         this.triggerEvent('TouchStart', true, e);
     }
 
     onTouchMove(e){
+        console.log('touchFeedback onTouchMove');
         this.triggerEvent('TouchMove', false, e);
     }
 
     onTouchEnd(e){
+        console.log('touchFeedback onTouchEnd');
         this.triggerEvent('TouchEnd', false, e);
     }
 
     onTouchCancel(e){
+        console.log('touchFeedback onTouchCancel');
         this.triggerEvent('TouchCancel', false, e);
     }
 
@@ -92,22 +96,33 @@ class TouchFeedBack extends Component{
         this.triggerEvent('MouseLeave', false, e);
     }
 
+    combineEventListener(child, eventType){
+        if(typeof child.props[eventType] === 'function'){
+            const eventListener = function(e){
+                child.props[eventType].call(null, e);
+                this[eventType](e);
+            };
+            return eventListener.bind(this);
+        }
+        return this[eventType];
+    }
 
     render(){
+        console.log('touchFeedBack render');
         const {disabled, activeClassName, activeStyle, children} = this.props;
 
+        const child = React.Children.only(children);
+
         const events = disabled ? undefined : {
-            onTouchStart: this.onTouchStart,
-            onTouchMove: this.onTouchMove,
-            onTouchEnd: this.onTouchEnd,
-            onTouchCancel: this.onTouchCancel,
-            onMouseDown: this.onMouseDown,
-            onMouseUp: this.onMouseUp,
-            onMouseLeave: this.onMouseLeave
+            onTouchStart: this.combineEventListener(child, 'onTouchStart'),
+            onTouchMove: this.combineEventListener(child, 'onTouchMove'),
+            onTouchEnd: this.combineEventListener(child, 'onTouchEnd'),
+            onTouchCancel: this.combineEventListener(child, 'onTouchCancel'),
+            onMouseDown: this.combineEventListener(child, 'onMouseDown'),
+            onMouseUp: this.combineEventListener(child, 'onMouseUp'),
+            onMouseLeave: this.combineEventListener(child, 'onMouseLeave')
         };
 
-        const child = React.Children.only(children);
-        //console.log(child.props.onClick);
         if(!disabled && this.state.active){
             let {style, className} = child.props;
             if(activeClassName){
@@ -120,28 +135,14 @@ class TouchFeedBack extends Component{
                 style = {...style, ...activeStyle}
             }
 
-            const test = React.cloneElement(child, {
-                className,
-                style,
-                ...events
-            });
-            //console.log(test);
-
-            return test;
-            /*
             return React.cloneElement(child, {
                 className,
                 style,
                 ...events
-            });*/
+            });
         }
 
-        const test = React.cloneElement(child, events);
-        console.log(test);
-        return test;
-
-        /*
-        return React.cloneElement(child, events);*/
+        return React.cloneElement(child, events);
     }
 }
 

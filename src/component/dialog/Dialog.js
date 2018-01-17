@@ -147,6 +147,30 @@ class Dialog extends React.Component {
         return maskElement;
     }
 
+    componentDidMount(){
+        this.footerRef.addEventListener('click', ()=>{
+            console.log('button1 click');
+        }, false);
+        this.footerRef.addEventListener('touchstart', ()=>{
+            console.log('button1 touchstart');
+        }, false);
+        this.footerRef.addEventListener('touchmove', ()=>{
+            console.log('button1 touchmove');
+        }, false);
+        this.footerRef.addEventListener('touchend', ()=>{
+            console.log('button1 touchend');
+        }, false);
+        this.footerRef.addEventListener('mousedown', ()=>{
+            console.log('button1 mousedown');
+        }, false);
+        this.footerRef.addEventListener('mousemove', ()=>{
+            console.log('button1 mousemove');
+        }, false);
+        this.footerRef.addEventListener('mouseup', ()=>{
+            console.log('button1 mouseup');
+        }, false);
+    }
+
     getDialogElement(){
         const {prefixCls, style, className, footer, header, closeable, children, bodyStyle, visible} = this.props;
 

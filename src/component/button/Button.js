@@ -53,6 +53,31 @@ class Button extends Component {
         inline: PropTypes.bool,
     };
 
+    //test
+    componentDidMount(){
+        this.testEl.addEventListener('click', ()=>{
+            console.log('button click');
+        }, false);
+        this.testEl.addEventListener('touchstart', ()=>{
+            console.log('button touchstart');
+        }, false);
+        this.testEl.addEventListener('touchmove', ()=>{
+            console.log('button touchmove');
+        }, false);
+        this.testEl.addEventListener('touchend', ()=>{
+            console.log('button touchend');
+        }, false);
+        this.testEl.addEventListener('mousedown', ()=>{
+            console.log('button mousedown');
+        }, false);
+        this.testEl.addEventListener('mousemove', ()=>{
+            console.log('button mousemove');
+        }, false);
+        this.testEl.addEventListener('mouseup', ()=>{
+            console.log('button mouseup');
+        }, false);
+    }
+
     render(){
         const {
             prefixCls, style, className, activeClassName, activeStyle,
@@ -97,6 +122,7 @@ class Button extends Component {
                     onClick={disabled ? null : onClick}
                     aria-disabled={disabled}
                     {...restProps}
+                    ref={el=>this.testEl = el}
                 >
                     {iconEl}
                     {kids}
