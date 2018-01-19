@@ -74,6 +74,8 @@ class DialogCase extends React.Component {
                     </div>
                 )}
                 className="pb-dialog-normal"
+                animation="bounce"
+                maskAnimation="fade"
             >
                 <div>欢迎体验Plan-B!</div>
             </Dialog>

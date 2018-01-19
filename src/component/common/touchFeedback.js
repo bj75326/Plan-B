@@ -58,22 +58,18 @@ class TouchFeedBack extends Component{
     }
 
     onTouchStart(e){
-        console.log('touchFeedback onTouchStart');
         this.triggerEvent('TouchStart', true, e);
     }
 
     onTouchMove(e){
-        console.log('touchFeedback onTouchMove');
         this.triggerEvent('TouchMove', false, e);
     }
 
     onTouchEnd(e){
-        console.log('touchFeedback onTouchEnd');
         this.triggerEvent('TouchEnd', false, e);
     }
 
     onTouchCancel(e){
-        console.log('touchFeedback onTouchCancel');
         this.triggerEvent('TouchCancel', false, e);
     }
 
@@ -108,7 +104,6 @@ class TouchFeedBack extends Component{
     }
 
     render(){
-        console.log('touchFeedBack render');
         const {disabled, activeClassName, activeStyle, children} = this.props;
 
         const child = React.Children.only(children);
