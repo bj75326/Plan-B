@@ -13,7 +13,7 @@ class LayoutSwitch extends Component {
     //need to add shouldComponentUpdate here!!
     shouldComponentUpdate(nextProps){
         if(nextProps.location.pathname === this.props.location.pathname){
-           return false;
+            return false;
         }
         return true;
     }

@@ -17,6 +17,8 @@ class DialogWrapper extends React.Component {
 
         this.removeContainer = this.removeContainer.bind(this);
         this.saveRef = this.saveRef.bind(this);
+
+        this.handleRouterChange = this.handleRouterChange.bind(this);
     }
 
     static defaultProps = {
@@ -35,10 +37,17 @@ class DialogWrapper extends React.Component {
         if(this.props.visible){
             this.componentDidUpdate();
         }
+        //app router 切换应用动画，如果dialog在显示需要立即unmount
+        if(!('PopStateEvent' in window) && 'HashChangeEvent' in window){
+            window.addEventListener('hashchange', this.handleRouterChange, false);
+        }
+        if('PopStateEvent' in window){
+            window.addEventListener('popstate', this.handleRouterChange, false);
+        }
     }
 
-    componentWillUnmount(){
-        if(this.props.visible){
+    handleRouterChange(e){
+        if(this.props.visible && this.container){
             if(!IS_REACT_16){
                 this.renderDialog(false);
             }else{
@@ -46,6 +55,25 @@ class DialogWrapper extends React.Component {
             }
         }else{
             this.removeContainer();
+        }
+    }
+
+    componentWillUnmount(){
+        if(this.props.visible && this.container){
+            if(!IS_REACT_16){
+                this.renderDialog(false);
+            }else{
+                this.removeContainer();
+            }
+        }else{
+            this.removeContainer();
+        }
+
+        if(!('PopStateEvent' in window) && 'HashChangeEvent' in window){
+            window.removeEventListener('hashchange', this.handleRouterChange, false);
+        }
+        if('PopStateEvent' in window){
+            window.removeEventListener('popstate', this.handleRouterChange, false);
         }
     }
 

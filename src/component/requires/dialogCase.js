@@ -43,7 +43,6 @@ class DialogCase extends React.Component {
     }
 
     handleBtnClick(){
-        console.log('222222');
         this.setState({
             visible: true
         });
@@ -51,14 +50,12 @@ class DialogCase extends React.Component {
 
     //由于react-fastclick重写了createElement，在footer button上绑定合成事件
     handleDialogConfirm(){
-        console.log('1111111');
         this.setState({
             visible: false
         });
     }
 
     render(){
-        console.log('dialogCase render');
         const {visible} = this.state;
 
         //纯dialog组件的生硬用法

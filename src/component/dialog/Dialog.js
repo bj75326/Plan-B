@@ -57,7 +57,12 @@ class Dialog extends React.Component {
 
     };
 
+    componentWillUpdate(){
+        console.log('dialog update');
+    }
+
     componentWillUnmount(){
+        console.log('dialog unmount');
         document.body.style.overflow = '';
         if(this.wrapRef){
             this.wrapRef.style.display = 'none';
