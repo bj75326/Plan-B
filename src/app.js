@@ -10,6 +10,7 @@ import store from './redux/store/Store';
 
 import './style/common.css';
 import './style/font-awesome.min.css';
+import './style/animate.css';
 
 import initReactFastclick from 'react-fastclick';
 

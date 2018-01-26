@@ -1,0 +1,139 @@
+.pb-zoom-appear{
+    opacity: 0;
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.pb-zoom-appear.pb-zoom-appear-active{
+    -webkit-animation-name: pbZoomIn;
+    animation-name: pbBounceIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.pb-zoom-leave{
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.pb-zoom-leave.pb-zoom-leave-active{
+    -webkit-animation-name: pbZoomOut;
+    animation-name: pbBounceOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.pb-fade-appear{
+    opacity: 0;
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.pb-fade-appear.pb-fade-appear-active{
+    -webkit-animation-name: pbFadeIn;
+    animation-name: pbFadeIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.pb-fade-leave{
+    -webkit-animation-duration: .25s;
+    animation-duration: .25s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.pb-fade-leave.pb-fade-leave-active{
+    -webkit-animation-name: pbFadeOut;
+    animation-name: pbFadeOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+@-webkit-keyframes pbZoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes pbZoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes pbZoomOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+}
+@keyframes pbZoomOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+}
+
+@-webkit-keyframes pbFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes pbFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes pbFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes pbFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

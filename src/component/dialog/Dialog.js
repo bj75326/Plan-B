@@ -49,7 +49,7 @@ class Dialog extends React.Component {
         visible: PropTypes.bool,
 
         footer: PropTypes.node,
-        header: PropTypes.node,
+        title: PropTypes.string,
         closeable: PropTypes.bool,
 
         onAnimateLeave: PropTypes.func,
@@ -153,7 +153,7 @@ class Dialog extends React.Component {
     }
 
     getDialogElement(){
-        const {prefixCls, style, className, footer, header, closeable, children, bodyStyle, visible} = this.props;
+        const {prefixCls, style, className, footer, title, closeable, children, bodyStyle, visible} = this.props;
 
         let footerEl;
         if(footer){
@@ -165,10 +165,12 @@ class Dialog extends React.Component {
         }
 
         let headerEl;
-        if(header){
+        if(title){
             headerEl = (
                 <div className={`${prefixCls}-header`} ref={el=>this.headerRef=el}>
-                    {header}
+                    <div className={`${prefixCls}-title`}>
+                        {title}
+                    </div>
                 </div>
             );
         }

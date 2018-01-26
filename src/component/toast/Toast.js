@@ -10,7 +10,7 @@ import FontAwesome from 'react-fontawesome';
 
 import '../../style/toast.css';
 
-//引用Notice & Notification组件应考虑重写该Toast.js。
+//单独的WebApp（引用Notice & Notification组件）应考虑重写该Toast.js，写一个就够了，统一管理。
 
 let newNotification;
 
