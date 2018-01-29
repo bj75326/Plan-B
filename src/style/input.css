@@ -94,6 +94,30 @@
     stroke: #69717d;
 }
 
+.pb-cell-value .pb-input>input::placeholder{
+    color: #bbb;
+    line-height: 1.2;
+    padding: 0;
+}
+
+.pb-cell-value .pb-input>input::-webkit-input-placeholder{
+    color: #bbb;
+    line-height: 1.2;
+    padding: 0;
+}
+.pb-cell-value .pb-input>input:-ms-input-placeholder{
+    color: #bbb;
+    line-height: 1.2;
+    padding: 0;
+}
+.pb-cell-value .pb-input>input::-ms-input-placeholder{
+    color: #bbb;
+    line-height: 1.2;
+    padding: 0;
+}
+
+
+
 .pb-fake-input-container {
     height: 25px;
     line-height: 25px;
