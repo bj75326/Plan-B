@@ -46,6 +46,8 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+
+    text-indent: 0;
 }
 
 .pb-input.pb-input-disabled input{
