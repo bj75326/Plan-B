@@ -96,24 +96,20 @@
 
 .pb-cell-value .pb-input>input::placeholder{
     color: #bbb;
-    line-height: 1.2;
-    padding: 0;
+    text-indent: 0;
 }
 
 .pb-cell-value .pb-input>input::-webkit-input-placeholder{
     color: #bbb;
-    line-height: 1.2;
-    padding: 0;
+    text-indent: 0;
 }
 .pb-cell-value .pb-input>input:-ms-input-placeholder{
     color: #bbb;
-    line-height: 1.2;
-    padding: 0;
+    text-indent: 0;
 }
 .pb-cell-value .pb-input>input::-ms-input-placeholder{
     color: #bbb;
-    line-height: 1.2;
-    padding: 0;
+    text-indent: 0;
 }
 
 
