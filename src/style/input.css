@@ -46,8 +46,7 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-
-    text-indent: 5px;
+    
 }
 
 .pb-input.pb-input-disabled input{
@@ -98,20 +97,24 @@
 
 .pb-cell-value .pb-input>input::placeholder{
     color: #bbb;
-    text-indent: 5px;
+
+    line-height: 1.6;
 }
 
 .pb-cell-value .pb-input>input::-webkit-input-placeholder{
     color: #bbb;
-    text-indent: 5px;
+
+    line-height: 1.6;
 }
 .pb-cell-value .pb-input>input:-ms-input-placeholder{
     color: #bbb;
-    text-indent: 5px;
+
+    line-height: 1.6;
 }
 .pb-cell-value .pb-input>input::-ms-input-placeholder{
     color: #bbb;
-    text-indent: 5px;
+
+    line-height: 1.6;
 }
 
 
