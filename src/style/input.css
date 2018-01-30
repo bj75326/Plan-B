@@ -46,7 +46,6 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    
 }
 
 .pb-input.pb-input-disabled input{
@@ -97,27 +96,25 @@
 
 .pb-cell-value .pb-input>input::placeholder{
     color: #bbb;
-
+    text-indent: 0;
     line-height: 1.6;
 }
 
 .pb-cell-value .pb-input>input::-webkit-input-placeholder{
     color: #bbb;
-
+    text-indent: 0;
     line-height: 1.6;
 }
 .pb-cell-value .pb-input>input:-ms-input-placeholder{
     color: #bbb;
-
+    text-indent: 0;
     line-height: 1.6;
 }
 .pb-cell-value .pb-input>input::-ms-input-placeholder{
     color: #bbb;
-
+    text-indent: 0;
     line-height: 1.6;
 }
-
-
 
 .pb-fake-input-container {
     height: 25px;
