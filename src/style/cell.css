@@ -105,6 +105,10 @@
 
 
 .pb-cell:not(.no-feedback-cell) .pb-cell-content:active {
+    /*background-color: #f2f2f2;*/
+}
+
+.pb-cell-content.pb-cell-content-active {
     background-color: #f2f2f2;
 }
 

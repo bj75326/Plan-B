@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FontAwesome from 'react-fontawesome';
 
+import TouchFeedback from '../common/touchFeedback';
+
 import '../../style/cell.css';
 
 let isTouched = false;
@@ -45,7 +47,8 @@ class Cell extends Component {
         autoClose: false,
         swipeDisabled: true,
         allowRight: false,
-        customTitle: false
+        customTitle: false,
+        component: 'div'
     };
 
     static PropTypes = {
@@ -66,7 +69,9 @@ class Cell extends Component {
         allowRight: PropTypes.bool,
 
         customTitle: PropTypes.bool,
-        onCellClick: PropTypes.func
+        onCellClick: PropTypes.func,
+
+        component: PropTypes.oneOf(['a', 'div']),
     };
 
     captureWidth(){
@@ -284,42 +289,49 @@ class Cell extends Component {
 
     renderContent(){
         const {prefixCls, titleIcon, titleText, titleLabel, swipeDisabled, customTitle, children, onCellClick} = this.props;
+        const {component:Component} = this.props;
 
-        return (
-            <div className={`${prefixCls}-content`} ref={el => this.content = el}
-                onTouchStart={!swipeDisabled ? this.handleTouchStart : noop}
-                onTouchMove={!swipeDisabled ? this.handleTouchMove : noop}
-                onTouchEnd={!swipeDisabled ? this.handleTouchEnd : noop}
-                onClick={onCellClick ? onCellClick : noop}
-            >
-                {customTitle ? ( React.Children.count(children) === 1 ? children :
-                        children[0]
-                    )
-                    : (
-                    !titleIcon ? (
+
+        const content = <div className={`${prefixCls}-content`} ref={el => this.content = el}
+            onTouchStart={!swipeDisabled ? this.handleTouchStart : noop}
+            onTouchMove={!swipeDisabled ? this.handleTouchMove : noop}
+            onTouchEnd={!swipeDisabled ? this.handleTouchEnd : noop}
+            onClick={onCellClick ? onCellClick : noop}
+        >
+            {customTitle ? ( React.Children.count(children) === 1 ? children :
+                    children[0]
+                )
+                : (
+                !titleIcon ? (
+                    <div className={`${prefixCls}-title`}>
+                        {titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null}
+                        {titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null}
+                    </div>
+                ) : (
+                    [
+                        <div className={`${prefixCls}-icon`}>
+                            <FontAwesome name={titleIcon} className="fa-lg"/>
+                        </div>,
                         <div className={`${prefixCls}-title`}>
-                            {titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null}
-                            {titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null}
+                            {[
+                                titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null,
+                                titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null
+                            ]}
                         </div>
-                    ) : (
-                        [
-                            <div className={`${prefixCls}-icon`}>
-                                <FontAwesome name={titleIcon} className="fa-lg"/>
-                            </div>,
-                            <div className={`${prefixCls}-title`}>
-                                {[
-                                    titleText ? <span className={`${prefixCls}-text`}>{titleText}</span> : null,
-                                    titleLabel ? <span className={`${prefixCls}-label`}>{titleLabel}</span> : null
-                                ]}
-                            </div>
-                        ]
-                    ))
-                }
-                <div className={`${prefixCls}-value`}>
-                    {customTitle ? children[1] : children}
-                </div>
+                    ]
+                ))
+            }
+            <div className={`${prefixCls}-value`}>
+                {customTitle ? children[1] : children}
             </div>
-        );
+        </div>;
+
+        if(Component === 'a'){
+            return (<TouchFeedback activeClassName={`${prefixCls}-content-active`}>
+                {content}
+            </TouchFeedback>);
+        }
+        return content;
     }
 
     renderAllowRight(){
@@ -335,8 +347,9 @@ class Cell extends Component {
     }
 
     render(){
-        const {prefixCls, className, left, right, swipeDisabled, ...restProps} = this.props;
+        const {prefixCls, className, left, right, swipeDisabled, component: Component} = this.props;
         const {swiping} = this.state;
+
 
         const cellClassName = classNames({
             [prefixCls]: !!prefixCls,
@@ -346,7 +359,7 @@ class Cell extends Component {
         });
 
         return (left.length || right.length) && !swipeDisabled ? (
-            <a className={cellClassName}>
+            <Component className={cellClassName}>
                 <div className={`${prefixCls}-cover`} ref={el => this.cover = el}
                      onTouchStart={this.handleCoverTouchStart}
                 />
@@ -358,12 +371,12 @@ class Cell extends Component {
                     {this.renderButtons(right)}
                 </div>
                 {this.renderAllowRight()}
-            </a>
+            </Component>
         ) : (
-            <a className={cellClassName}>
+            <Component className={cellClassName}>
                 {this.renderContent()}
                 {this.renderAllowRight()}
-            </a>
+            </Component>
         );
     }
 }

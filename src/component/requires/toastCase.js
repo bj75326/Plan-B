@@ -62,17 +62,62 @@ class ToastCase extends Component {
                 <BreadCrumb routes={routes} param={{onClick: this.breadCrumbClick}}/>
                 <div className="viewport">
                     <CellGroup title="点击单元格显示toast基本样式">
-                        <CellGroup.Cell titleIcon="commenting-o" titleText="default" allowRight={true} onCellClick={this.show.bind(this)}/>
+                        <CellGroup.Cell
+                            titleIcon="commenting-o"
+                            titleText="default"
+                            allowRight={true}
+                            onCellClick={this.show.bind(this)}
+                            component="a"
+                        />
                     </CellGroup>
                     <CellGroup title="点击单元格显示带有icon的toast">
-                        <CellGroup.Cell className="text-success" titleIcon="check" titleText="success" allowRight={true} onCellClick={this.showSuccess.bind(this)}/>
-                        <CellGroup.Cell className="text-danger" titleIcon="exclamation-circle" titleText="error" allowRight={true} onCellClick={this.showError.bind(this)}/>
-                        <CellGroup.Cell className="text-warning" titleIcon="exclamation-triangle" titleText="warning" allowRight={true} onCellClick={this.showWarning.bind(this)}/>
+                        <CellGroup.Cell
+                            className="text-success"
+                            titleIcon="check"
+                            titleText="success"
+                            allowRight={true}
+                            onCellClick={this.showSuccess.bind(this)}
+                            component="a"
+                        />
+                        <CellGroup.Cell
+                            className="text-danger"
+                            titleIcon="exclamation-circle"
+                            titleText="error"
+                            allowRight={true}
+                            onCellClick={this.showError.bind(this)}
+                            component="a"
+                        />
+                        <CellGroup.Cell
+                            className="text-warning"
+                            titleIcon="exclamation-triangle"
+                            titleText="warning"
+                            allowRight={true}
+                            onCellClick={this.showWarning.bind(this)}
+                            component="a"
+                        />
                     </CellGroup>
                     <CellGroup title="点击单元格显示不同位置的toast" style={{marginBottom: '42px'}}>
-                        <CellGroup.Cell titleIcon="chevron-up" titleText="top" allowRight={true} onCellClick={this.showTop.bind(this)}/>
-                        <CellGroup.Cell titleIcon="minus" titleText="middle" allowRight={true} onCellClick={this.showMiddle.bind(this)}/>
-                        <CellGroup.Cell titleIcon="chevron-down" titleText="bottom" allowRight={true} onCellClick={this.showBottom.bind(this)}/>
+                        <CellGroup.Cell
+                            titleIcon="chevron-up"
+                            titleText="top"
+                            allowRight={true}
+                            onCellClick={this.showTop.bind(this)}
+                            component="a"
+                        />
+                        <CellGroup.Cell
+                            titleIcon="minus"
+                            titleText="middle"
+                            allowRight={true}
+                            onCellClick={this.showMiddle.bind(this)}
+                            component="a"
+                        />
+                        <CellGroup.Cell
+                            titleIcon="chevron-down"
+                            titleText="bottom"
+                            allowRight={true}
+                            onCellClick={this.showBottom.bind(this)}
+                            component="a"
+                        />
                     </CellGroup>
                 </div>
             </div>

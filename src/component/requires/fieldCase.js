@@ -179,26 +179,26 @@ class FieldCase extends Component {
                                 {inputLabel2("user")}
                                 <InputItem {...getFieldProps('label1')} placeholder="用户名"/>
                             </CellGroup.Cell>
-                            <CellGroup.Cell customTitle={true} className="field-cell">
+                            <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
                                 {inputLabel2("lock")}
                                 <InputItem {...getFieldProps('label2')} placeholder="密码"/>
                             </CellGroup.Cell>
                         </CellGroup>
                         <CellGroup title="禁用与只读模式">
                             <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
-                                {inputLabel("姓名（禁用）")}
+                                {inputLabel("姓名[禁用]")}
                                 <InputItem {...getFieldProps('disabledField')} disabled={true}
                                     placeholder="请输入姓名"
                                 />
                             </CellGroup.Cell>
                             <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
-                                {inputLabel("姓名（只读）")}
+                                {inputLabel("姓名[只读]")}
                                 <InputItem {...getFieldProps('readOnlyField')} editable={false}
                                     placeholder="请输入姓名"
                                 />
                             </CellGroup.Cell>
                             <CellGroup.Cell customTitle={true} className="field-cell no-feedback-cell">
-                                {inputLabel("金额（禁用）")}
+                                {inputLabel("金额[禁用]")}
                                 <InputItem {...getFieldProps('disabledAmount', {
                                     normalize: (v, prev) => {
                                         if(v && !/^(([1-9]\d*)|0)(\.\d{0,2}?)?$/.test(v)){
